@@ -1,4 +1,9 @@
-[▶️ Démo vidéo](./Réalisation de PFE.wmv)
+<video controls width="800" style="max-width:100%;">
+  <source src="./Realisation-de-PFE.mp4" type="video/mp4" />
+  ▶️ Votre navigateur ne peut pas lire la vidéo.
+  <a href="./Realisation-de-PFE.mp4">Télécharger la démo vidéo</a>
+</video>
+
 
 # Système E‑Commerce avec Recommandation — PFE Licence SMI
 
