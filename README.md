@@ -115,8 +115,5 @@ Je présente ici mon projet de fin d’études, réalisé en 2022 au sein de la 
 2. Paramètres de connexion configurés dans `META-INF/persistence.xml` (URL, utilisateur, mot de passe, dialecte).
 3. Déploiement sur **Apache Tomcat** (ex. 9.x) depuis Eclipse (*Run on Server*) ou par empaquetage **WAR**.
 
-## Documents
-- [Rapport PFE](./Rapport-Asri Rida.pdf)
-
 ## Auteur
 **Rida ASRI**
