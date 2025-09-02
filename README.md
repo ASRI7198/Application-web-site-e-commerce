@@ -1,25 +1,22 @@
-# Conception et Développement d’un Système de Recommandation pour E‑Commerce
+[▶️ Démo vidéo](./Réalisation de PFE.wmv)
 
-[▶️ **Vidéo de démonstration (WMV)**](Réalisation de PFE.wmv)
+# Système E‑Commerce avec Recommandation — PFE Licence SMI
 
-> Déposez `Réalisation de PFE.wmv` à la **racine** du dépôt pour que ce lien fonctionne sur GitHub.  
-> (Option : convertir en `.mp4` pour une meilleure compatibilité navigateur.)
+Je présente ici mon projet de fin d’études, réalisé en 2022 au sein de la faculté des Sciences d’El Jadida : une application web d’E‑Commerce avec un système de recommandation intégré. J’ai conçu l’architecture, développé le front‑office et le back‑office, modélisé les entités métier et implémenté une logique simple de recommandations à partir des interactions des utilisateurs (historique, panier, catégories consultées).
 
----
+## Objectifs
+- Proposer une boutique en ligne fonctionnelle (catalogue, panier, commande, authentification).
+- Offrir un espace d’administration pour gérer les produits, clients, promotions et dépôts.
+- Recommander des produits pertinents lors de la reconnexion d’un client, en exploitant son comportement passé.
 
-## 👋 Aperçu
+## Architecture et technologies
+- **Architecture** : 3‑tiers (présentation · logique métier · données) avec pattern **MVC** côté web.
+- **Technos** : Java (JSP/Servlets), JPA/Hibernate, MySQL, Apache Tomcat, HTML/CSS/JS/Bootstrap.
+- **IDE** : Eclipse.
+- **Persistance** : `persistence.xml` (JPA/Hibernate).
 
-Projet de Fin d’Études (Licence SMI, Université Chouaib Doukkali – El Jadida) : **conception et réalisation d’une plateforme E‑Commerce** intégrant un **système de recommandation** pour proposer des produits pertinents aux clients.
-
-- **Front‑office** : catalogue, panier, inscription/connexion, paiement (maquette).  
-- **Back‑office** : gestion des produits, promotions, dépôts, clients.  
-- **Recommandation** : propositions personnalisées à la reconnexion selon préférences (historique/panier).
-
----
-
-## 🏗️ Structure du projet (selon la capture)
-
-```text
+## Structure du projet
+```
 .
 ├── .settings/
 ├── build/
@@ -72,7 +69,7 @@ Projet de Fin d’Études (Licence SMI, Université Chouaib Doukkali – El Jadi
 │           ├── Accueil.jsp
 │           ├── Ajouter.jsp
 │           ├── Inscription.jsp
-│           ├── List Client.jsp
+│           ├── "List Client.jsp"
 │           ├── ListProduit.jsp
 │           ├── Login.jsp
 │           ├── Modifier.jsp
@@ -83,68 +80,42 @@ Projet de Fin d’Études (Licence SMI, Université Chouaib Doukkali – El Jadi
 │           ├── filecom
 │           └── state.txt
 ├── Réalisation de PFE.wmv
+├── Rapport-Asri Rida.pdf
+├── Présentation Rida (1).pptx
 └── README.md
 ```
 
-> **Remarque** : la présence de `persistence.xml` sous `src/main/java/META‑INF/` est supportée si le répertoire est bien empaqueté au runtime dans le classpath. Option plus standard : `src/main/resources/META-INF/persistence.xml`.
+## Principales fonctionnalités
+### Front‑office
+- Accueil, liste et détails produits.
+- Inscription/Connexion, gestion de session.
+- Panier (ajout, suppression, quantités, total) et passage de commande.
+- Paiement (maquette) et récapitulatif.
 
----
+### Back‑office
+- Gestion des produits (CRUD), promotions et dépôts.
+- Gestion des clients.
+- Accès réservé (profil administrateur).
 
-## 🧰 Stack & Outils
+### Recommandation
+- À la reconnexion d’un client, je sélectionne des produits **candidats** à partir de son historique d’interactions (articles consultés/ajoutés) et des **catégories proches**.
+- Je filtre les articles déjà achetés et j’ordonne les recommandations selon la **fréquence** et la **récence** d’interaction, avec un bonus pour les articles **en promotion**.
+- L’affichage s’intègre à l’accueil utilisateur sous forme de carousel/cartes produits.
 
-- **Langages** : Java (J2EE), JSP/Servlets, HTML/CSS/JavaScript, Bootstrap  
-- **Persistance** : JPA / Hibernate (`persistence.xml`)  
-- **Serveur** : Apache Tomcat  
-- **Base de données** : MySQL (XAMPP, phpMyAdmin)  
-- **IDE** : Eclipse
+## Modèle métier (vue d’ensemble)
+- **Utilisateur/Client, Rôle, Droit** : gestion des comptes et autorisations.
+- **Produit, Promotion, Dépôt** : catalogue et stock.
+- **Panier, Ligne_Panier** : construction de l’achat.
+- **Commande, Ligne_Commande, Paiement, Livraison, Facture** : cycle de commande complet.
+- **ResultatRecherche** : support des recherches/filtrages côté front.
 
----
+## Lancement local
+1. Base de données MySQL créée sous le nom **ecommerce**.
+2. Paramètres de connexion configurés dans `META-INF/persistence.xml` (URL, utilisateur, mot de passe, dialecte).
+3. Déploiement sur **Apache Tomcat** (ex. 9.x) depuis Eclipse (*Run on Server*) ou par empaquetage **WAR**.
 
-## 🧩 Organisation métier (packages)
+## Documents
+- [Rapport PFE](./Rapport-Asri%20Rida.pdf)
 
-- **Commandes/** : agrégats commande, ligne, paiement, livraison, facture, promo…  
-- **Paniers/** : gestion du panier (lignes, erreurs, devis, opérations).  
-- **Utilisateur/** : entités et rôles (Client, Utilisateur, Droit, Profil_*).  
-- **DAO/** : servlets/handlers pour ajouter/modifier/supprimer, session, signup…  
-- **SystemRecommendation/** : logique de **recommandation** (SysRecommandation).  
-- **webapp/** : **JSP** (Accueil, Login, Panier, Paiement, Détails…), assets (css/js/images).
-
----
-
-## 🚀 Déploiement local (Tomcat)
-
-> **Pré‑requis** : Java 8+, Tomcat 9+, MySQL.
-
-1. **Base de données**  
-   - Créez la base `ecommerce` dans MySQL.  
-   - Renseignez l’URL et identifiants dans `persistence.xml`.
-
-2. **Build & déploiement**  
-   - Via Eclipse (Dynamic Web Project) : *Run on Server* (Tomcat).  
-   - Ou empaquetez en **WAR** puis déposez-le dans `TOMCAT_HOME/webapps/`.
-
-3. **Accès**  
-   - Front : `http://localhost:8080/<nom-app>/`  
-   - Admin : `http://localhost:8080/<nom-app>/admin` (si prévu)
-
----
-
-## 🔐 Notes & bonnes pratiques
-
-- Ajouter un `.gitignore` (ex. : `.settings/`, `build/`, `*.class`, `*.log`, `*.war`).  
-- Gérer les **sessions** et la sécurité des formulaires (login, panier, paiement).  
-- RGPD : mentions et consentement si données personnelles.
-
----
-
-## 📎 Documents
-
-- Rapport et présentation (à ajouter au dépôt si souhaité) :  
-  `Rapport-Asri Rida.pdf`, `Présentation Rida (1).pptx`.
-
----
-
-## 👤 Crédits
-
-- **Auteur** : Rida ASRI  
-- **Encadrement** : Pr. Inssaf EL GUABASSI, Pr. Hassan SILKAN
+## Auteur
+**Rida ASRI**
