@@ -1,6 +1,6 @@
 # Conception et Développement d’un Système de Recommandation pour E‑Commerce
 
-[▶️ **Vidéo de démonstration (WMV)**](./R%C3%A9alisation%20de%20PFE.wmv)
+[▶️ **Vidéo de démonstration (WMV)**](Réalisation de PFE.wmv)
 
 > Déposez `Réalisation de PFE.wmv` à la **racine** du dépôt pour que ce lien fonctionne sur GitHub.  
 > (Option : convertir en `.mp4` pour une meilleure compatibilité navigateur.)
