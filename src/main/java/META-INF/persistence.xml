@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="Project">
+   
+      	<class>Utilisateur.Droit</class>
+		<class>Utilisateur.Role</class>
+		<class>Utilisateur.Utilisateur</class>
+		<class>Utilisateur.Client</class>
+		<class>Utilisateur.Profil_Livraison</class>
+		<class>Utilisateur.Profil_Facturation</class>
+		<class>Paniers.Panier</class>
+		<class>Paniers.Ligne_Panier</class>
+		<class>Paniers.ResultatRecherche</class>
+		<class>Paniers.Devis</class>
+		<class>Paniers.Produit</class>
+		<class>Paniers.GestionPanier</class>
+		<class>Paniers.ErreurPanierVide</class>
+		<class>Commandes.Facture</class>
+		<class>Commandes.Livraison</class>
+		<class>Commandes.Ligne_Commande</class>
+		<class>Commandes.Depot</class>
+		<class>Commandes.Commande</class>
+		<class>Commandes.Promotion</class>
+		<class>Commandes.Paiement</class>
+
+      <properties>
+         <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/asri"/>
+         <property name="javax.persistence.jdbc.user" value="root"/>
+         <property name="javax.persistence.jdbc.password" value=""/>
+         <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+         <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
+         <property name="hibernate.hbm2ddl.auto" value="update"/>
+          <property name="hibernate.show_sql" value="true"/>
+      </properties>
+      
+   </persistence-unit>
+</persistence>

@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+.tableRida {
+    border-collapse: collapse;
+    width: 40%;
+    margin-left: 20%;
+    margin-top: 5%;
+}
+
+
+.thReda {
+    text-align: left;
+    padding: 16px;
+}
+.tdReda {
+    text-align: left;
+    padding: 16px;
+}
+.trRA:nth-child(even){background-color: #f2f2f2}
+
+.thAsri {
+    background-color: #fd7e14;
+    color: white;
+}
