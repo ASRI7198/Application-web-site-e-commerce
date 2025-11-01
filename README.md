@@ -5,7 +5,9 @@
 
 Je présente ici mon projet de fin d’études, réalisé en 2022 au sein de la faculté des Sciences d’El Jadida : une application web d’E‑Commerce avec un système de recommandation intégré. J’ai conçu l’architecture, développé le front‑office et le back‑office, modélisé les entités métier et implémenté une logique simple de recommandations à partir des interactions des utilisateurs (historique, panier, catégories consultées).
 
-![Demo](demo.gif)
+<p align="center">
+  <img src="demo.gif" alt="Demo" width="800">
+</p>
 
 ## Objectifs
 - Proposer une boutique en ligne fonctionnelle (catalogue, panier, commande, authentification).
