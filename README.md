@@ -1,4 +1,4 @@
-<img align="right" src="Réalisation-de-PFE.gif" width="450" height="290">  
+
 
 
 # Système E‑Commerce avec Recommandation — PFE Licence SMI
